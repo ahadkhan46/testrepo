@@ -1,0 +1,18 @@
+version: 0.0
+files:version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/testrepo
+    overwrite: true
+permissions:
+  - object: /home/ubuntu/testrepo
+    owner: ubuntu
+    group: ubuntu
+hooks:
+  ApplicationStop:
+    - location: /scripts/stop-services.sh
+  AfterInstall:
+    - location: /scripts/commands.sh
+  ApplicationStart:
+    - location: /scripts/start-services.sh
