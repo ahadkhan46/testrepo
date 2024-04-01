@@ -12,6 +12,8 @@ permissions:
 hooks:
   ApplicationStop:
     - location: /scripts/stop-services.sh
+  BeforeInstall:
+    - location: /scripts/remove-existing-directory.sh
   AfterInstall:
     - location: /scripts/commands.sh
   ApplicationStart:
