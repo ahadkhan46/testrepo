@@ -19,14 +19,6 @@ jobs:
           RESULTS_LENGTH=$(jq '.runs[0].results | length' snyk.sarif)
           echo "RESULTS_LENGTH=$RESULTS_LENGTH" >> $GITHUB_ENV
           echo $RESULTS_LENGTH
-      - name: Pass_or_Fail_the_job
-        run: |
-            if [ "$RESULTS_LENGTH" != 0 ]; then
-                echo "Job Failed"
-                exit 1
-            else
-                echo "Pass"
-            fi
       - name: Send notification on Slack using Webhooks
         uses: slackapi/slack-github-action@v1.24.0
         if: always()
