@@ -1,2 +1,2 @@
-api_key="123466789"
-api_string="Hello"
+api_key="password123456"
+api_string="Hello world"
